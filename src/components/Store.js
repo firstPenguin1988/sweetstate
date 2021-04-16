@@ -1,4 +1,4 @@
-import { createStore, createHook } from 'react-sweet-state';
+import { createStore, createHook } from 'react-sweet-state'
 
 const apiUrl = 'https://45240421cf2f0c2fbd1eea6c037d3984.m.pipedream.net/'
 //const apiUrl = 'https://4f79d4067c98ed72d6f6e4a11c020cca.m.pipedream.net'
@@ -8,34 +8,33 @@ const initialState = {
   data: [],
   loading: false,
   error: null,
-  rentType: '',
+  rentType: ''
 }
 
 const actions = {
   load: () => async ({ getState, setState }) => {
     if (!getState().loading) {
-	setState({ loading: true }); 
+      setState({ loading: true })
     }
 
     try {
-      const res = await fetch(apiUrl);
+      const res = await fetch(apiUrl)
       const jsondata = await res.json()
-      console.log('datadata: ', jsondata);
-      setState({ data: jsondata, loading: false });
-    } catch (error) { 
-      setState({ error, loading: false });
-    } 
+      console.log('datadata: ', jsondata)
+      setState({ data: jsondata, loading: false })
+    } catch (error) {
+      setState({ error, loading: false })
+    }
   },
-  setRentType: (rentType) => ({setState}) => {
+  setRentType: rentType => ({ setState }) => {
     setState({ rentType })
-  },
+  }
 }
 
 // create a store type
-const Store = createStore({ initialState, actions });
+const Store = createStore({ initialState, actions })
 // create components to access store state instances
-export const useFetchData = createHook(Store);
-
+export const useFetchData = createHook(Store)
 
 /*
 import {createStore, createHook} from 'react-sweet-state'

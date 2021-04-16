@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './App.css'
 import Body from './components/Body'
-import {useFetchData} from './components/Store'
+import { useFetchData } from './components/Store'
 //import { useSelector, useDispatch } from 'react-redux'
 //import {setRentTypeAction} from './actions'
 //import {bedrate, roomrate, houserate} from './actions'
@@ -12,34 +12,30 @@ function App () {
   //const apiUrl = 'https://45240421cf2f0c2fbd1eea6c037d3984.m.pipedream'
   //const apiUrl = 'https://45240421cf2f0c2fbd1eea6c037d3984.m.pipedream.net/'
   //const apiUrl = 'https://4f79d4067c98ed72d6f6e4a11c020cca.m.pipedream.net'
- 
-  const [state, actions] = useFetchData();
 
-  useEffect(
-    () => { 
-      if (state.data.length === 0) actions.load(); 
-    },
-    [state, actions], 
-  );
-  
-  
+  const [state, actions] = useFetchData()
+
+  useEffect(() => {
+    if (state.data.length === 0) actions.load()
+  }, [state, actions])
+
   if (state.error || state.data[0]?.rent === undefined) {
-    return (
-      <h1>something went wrong</h1>
-    )
-  } 
-  
+    return <h1>something went wrong</h1>
+  }
+
   return (
     <div className='App'>
       {state.loading ? (
         <h1>Loading...</h1>
-      ) : (  
+      ) : (
         <>
           {Object.keys(rate).map(keyName => {
             return (
               <button
                 key={keyName}
-                className={state.rentType === keyName ? 'buttonToggled' : 'buttons'}
+                className={
+                  state.rentType === keyName ? 'buttonToggled' : 'buttons'
+                }
                 //onClick={() => dispatch({type: `${rate[keyName].toUpperCase().split(" ").join("")}`})}
                 //onClick={() => dispatch({type: `${rate[keyName].toUpperCase().split(" ").join("")}`})}
                 //onClick={() => dispatch(`${`${keyName}rate()`}`)}
@@ -53,19 +49,16 @@ function App () {
               </button>
             )
           })}
-          
+
           <Body rentType={state.rentType} houseData={state.data[0]} />
           <Body rentType={state.rentType} houseData={state.data[1]} />
         </>
-      )}   
+      )}
     </div>
   )
-  
-  
 }
 
 export default App
-
 
 /*
 function App () {
