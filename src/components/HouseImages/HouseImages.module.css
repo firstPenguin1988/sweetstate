@@ -1,0 +1,24 @@
+.container {
+    position: relative;
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    font-weight: bold;
+}
+
+.gender {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: white;
+    color: black;
+}
+
+.seen {
+    position:absolute;
+    background: black;
+    color: white;
+    bottom:0px;
+    right:35%;
+    left: 30px;
+}

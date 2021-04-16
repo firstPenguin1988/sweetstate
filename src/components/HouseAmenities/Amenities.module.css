@@ -1,0 +1,12 @@
+ul{
+    list-style-type: none;
+}
+.list li{
+    display: inline;
+}
+.list li img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: cyan;
+}

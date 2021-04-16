@@ -1,0 +1,26 @@
+.container{
+    background: #fafafa;
+    margin-left: auto;
+    margin-right: auto;
+    width: 58em;
+}
+
+.buttons{
+    background: azure;
+    padding: 1em;
+    color: black;
+    border: none;
+    margin: 3px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.buttonToggled{
+    background: red;
+    padding: 1em;
+    color: white;
+    border: none;
+    margin: 3px;
+    border-radius: 5px;
+    outline: none;
+}
